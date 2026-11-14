@@ -1,0 +1,13 @@
+# NetBeans build output (it's created again every time we build)
+build/
+dist/
+nbproject/private/
+
+# Teacher's materials (not our work, so they stay out of GitHub)
+reference/
+
+# SDF document (it's submitted as a PDF on Moodle, not through GitHub)
+docs/
+
+# Mac system files
+.DS_Store
