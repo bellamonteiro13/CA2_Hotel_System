@@ -10,8 +10,8 @@
 - [x] Organise the folder: move the teacher's files into `reference/` and put the SDF work into `docs/SDF/`
 - [x] Create our own `Applicants_Form.txt` (41 valid names + 2 invalid lines on purpose, to test validation)
 - [x] Create a `.gitignore` (ignore `build/`, `dist/`, `nbproject/private/`, `reference/`, `docs/`)
-- [ ] `git init` + first commit
-- [ ] Create the GitHub repo and push the project
+- [x] `git init` + first commit
+- [x] Create the GitHub repo and push the project → https://github.com/bellamonteiro13/CA2_Hotel_System
 - [ ] Add the lecturer as a **collaborator** on the repo
 - [ ] 💡 Commit after EVERY step below (goal: 10–15+ commits)
 
