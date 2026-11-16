@@ -16,17 +16,19 @@
 - [ ] 💡 Commit after EVERY step below (goal: 10–15+ commits)
 
 ## 📋 Step 2: Menu with Enums (10 marks)
-- [ ] Create a `MenuOption` enum matching the SDF use cases: LOAD_STAFF_FILE (UC1), SORT (UC2), SEARCH (UC3), ADD_EMPLOYEE (UC4), DISPLAY_HIERARCHY (UC5), EXIT
-- [ ] Display the menu by looping through the enum values (`values()`)
-- [ ] Read the user's choice and turn it into an enum value
-- [ ] Use a `switch` on the enum to call the right feature
-- [ ] Keep the program looping until the user picks EXIT
-- [ ] Create enums for `ManagerType` and `DepartmentName` (used in the Add step)
+- [x] Create a `MenuOption` enum matching the SDF use cases: LOAD_STAFF_FILE (UC1), SORT (UC2), SEARCH (UC3), ADD_EMPLOYEE (UC4), DISPLAY_HIERARCHY (UC5), EXIT
+- [x] Display the menu by looping through the enum values (`values()`)
+- [x] Read the user's choice and turn it into an enum value (`fromMenuNumber`)
+- [x] Validate the choice: letters, empty input and out-of-range numbers show an error without crashing (NFR5)
+- [x] Use a `switch` on the enum to call the right feature (placeholders for now: "coming soon!")
+- [x] Keep the program looping until the user picks EXIT (`do-while`)
+- [ ] Run it in NetBeans yourself and try to break it 😈
 - [ ] 🎤 Be able to explain: what is an enum, and why is it better than plain ints or Strings?
 - [ ] Commit ✔️
 
 ## 🏗️ Step 3: Classes & Inheritance (core requirement)
 > Names come from your SDF document, so the code and the diagrams match! 🎯
+- [ ] Create enums for `ManagerType` and `DepartmentName` (used for random data and the Add step)
 - [ ] Parent class 1: `Employee` (name, designation, department)
   - [ ] Subclasses: `Receptionist`, `RoomAttendant`, `Bartender`
 - [ ] Parent class 2: `Manager`
