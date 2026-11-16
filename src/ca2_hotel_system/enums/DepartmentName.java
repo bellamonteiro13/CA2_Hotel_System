@@ -1,4 +1,4 @@
-package ca2_hotel_system;
+package ca2_hotel_system.enums;
 
 // here it is my enum DepartmentName (an enum is a special kind of class!)
 // im creating it so only the 3 real departments of the hotel can exist

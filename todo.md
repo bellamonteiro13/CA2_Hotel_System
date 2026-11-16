@@ -34,8 +34,8 @@
   - [ ] Subclasses: `Receptionist`, `RoomAttendant`, `Bartender`
 - [ ] Parent class 2: `Manager`
   - [ ] Subclasses: `GeneralManager`, `DepartmentManager`, `Supervisor`
-- [ ] Parent class 3: `Department`
-  - [ ] Subclasses: `FrontOffice`, `Housekeeping`, `FoodAndBeverage`
+- [x] Parent class 3: `Department` (abstract), written by me! ✍️
+  - [x] Subclasses: `FrontOffice`, `Housekeeping`, `FoodAndBeverage` (using `extends` + `super`)
 - [ ] Constructors, getters/setters and `toString()` in every class
 - [ ] Descriptive names + comments everywhere
 - [ ] 🎤 Be able to explain: `extends`, `super()`, parent vs child class, method overriding
@@ -126,6 +126,8 @@
 
 ## 🚀 Step 12: Submission
 - [ ] Final push to GitHub (check the commit count ≥ 10–15)
+- [ ] (Optional) Use one GitHub account for the commits (right now they show as isabella-bella-monteiro, the college-email account)
+- [ ] (Optional) Add a README for the portfolio
 - [ ] Zip the NetBeans project and submit it on the A&C Moodle page
 - [ ] Submit the A&C report on Moodle
 - [ ] Submit the SDF PDF on the SDF Moodle page

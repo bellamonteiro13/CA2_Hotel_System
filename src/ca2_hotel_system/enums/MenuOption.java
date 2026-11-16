@@ -1,4 +1,4 @@
-package ca2_hotel_system;
+package ca2_hotel_system.enums;
 
 
 // MenuOption lists every option of the main menu.

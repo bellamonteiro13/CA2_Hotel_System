@@ -1,5 +1,6 @@
 package ca2_hotel_system;
 
+import ca2_hotel_system.enums.MenuOption;
 import java.util.Scanner;
 
 // CA2 Hotel Staff Management System

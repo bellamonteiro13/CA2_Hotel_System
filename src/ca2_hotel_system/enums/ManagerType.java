@@ -1,4 +1,4 @@
-package ca2_hotel_system;
+package ca2_hotel_system.enums;
 // here it is my enum ManagerType (an enum is a special kind of class!)
 // im creating it so the type of manager is shown, and only these 3 types can exist
 // the 3 types come from my SDF: General Manager, Department Manager and Supervisor
