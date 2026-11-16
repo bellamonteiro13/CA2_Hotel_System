@@ -32,8 +32,8 @@
 - [x] Create the `DepartmentName` enum (Front Office, Housekeeping, Food & Beverage), written by me! ✍️
 - [ ] Parent class 1: `Employee` (name, designation, department)
   - [ ] Subclasses: `Receptionist`, `RoomAttendant`, `Bartender`
-- [ ] Parent class 2: `Manager`
-  - [ ] Subclasses: `GeneralManager`, `DepartmentManager`, `Supervisor`
+- [x] Parent class 2: `Manager` (abstract, has-a Department), written by me! ✍️
+  - [x] Subclasses: `GeneralManager`, `DepartmentManager`, `Supervisor` (receive 2, pass 3 with `super`)
 - [x] Parent class 3: `Department` (abstract), written by me! ✍️
   - [x] Subclasses: `FrontOffice`, `Housekeeping`, `FoodAndBeverage` (using `extends` + `super`)
 - [ ] Constructors, getters/setters and `toString()` in every class
