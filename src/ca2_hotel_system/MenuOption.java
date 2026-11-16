@@ -1,5 +1,6 @@
 package ca2_hotel_system;
 
+
 // MenuOption lists every option of the main menu.
 // Using an enum (instead of plain numbers or Strings) means the menu
 // can only ever have these fixed options. Java will not let anyone
@@ -20,10 +21,11 @@ public enum MenuOption {
 
     // Enum constructor: it runs once for each constant above.
     // It is always private, so nobody outside this file can create new options.
-    // Receives: label = the text shown to the user
+    // Receives: label = the text shown to the user 
+    // here is basically saying pick up the new text and put in the label 
     MenuOption(String label) {
         this.label = label;
-    }
+    } 
 
     // Gives back the text shown to the user for this option
     public String getLabel() {

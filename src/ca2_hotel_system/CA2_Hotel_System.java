@@ -51,6 +51,8 @@ public class CA2_Hotel_System {
         //=! menas is not EQUAL to..
         
         keyboard.close();
+        //here im adding the keyboard close cause it is a good pratice
+        //especially when u are using the arquives such as Applicants_Form.txt
     }
 
     // Prints every menu option by looping through the MenuOption enum.

@@ -7,13 +7,13 @@
 ---
 
 ## 🧰 Step 1: Setup & GitHub
+> 💡 Commit after EVERY step (goal: 10–15+ commits)
 - [x] Organise the folder: move the teacher's files into `reference/` and put the SDF work into `docs/SDF/`
 - [x] Create our own `Applicants_Form.txt` (41 valid names + 2 invalid lines on purpose, to test validation)
 - [x] Create a `.gitignore` (ignore `build/`, `dist/`, `nbproject/private/`, `reference/`, `docs/`)
 - [x] `git init` + first commit
 - [x] Create the GitHub repo and push the project → https://github.com/bellamonteiro13/CA2_Hotel_System
 - [ ] Add the lecturer as a **collaborator** on the repo
-- [ ] 💡 Commit after EVERY step below (goal: 10–15+ commits)
 
 ## 📋 Step 2: Menu with Enums (10 marks)
 - [x] Create a `MenuOption` enum matching the SDF use cases: LOAD_STAFF_FILE (UC1), SORT (UC2), SEARCH (UC3), ADD_EMPLOYEE (UC4), DISPLAY_HIERARCHY (UC5), EXIT
@@ -24,11 +24,12 @@
 - [x] Keep the program looping until the user picks EXIT (`do-while`)
 - [ ] Run it in NetBeans yourself and try to break it 😈
 - [ ] 🎤 Be able to explain: what is an enum, and why is it better than plain ints or Strings?
-- [ ] Commit ✔️
+- [x] Commit ✔️ (94f889a)
 
-## 🏗️ Step 3: Classes & Inheritance (core requirement)
+## 🏗️ Step 3: Classes & Inheritance (core requirement) 📍
 > Names come from your SDF document, so the code and the diagrams match! 🎯
-- [ ] Create enums for `ManagerType` and `DepartmentName` (used for random data and the Add step)
+- [x] Create the `ManagerType` enum (General Manager, Department Manager, Supervisor), written by me! ✍️
+- [x] Create the `DepartmentName` enum (Front Office, Housekeeping, Food & Beverage), written by me! ✍️
 - [ ] Parent class 1: `Employee` (name, designation, department)
   - [ ] Subclasses: `Receptionist`, `RoomAttendant`, `Bartender`
 - [ ] Parent class 2: `Manager`
@@ -109,14 +110,16 @@
 - [ ] Add the report `.docx` to the GitHub repo + commit ✔️
 
 ## 📐 Step 11: SDF Document (PDF, your own work ✍️)
-- [ ] CCT assessment cover page
-- [ ] **5 Use Case narratives** (main path + alternative/exception paths) (20 marks)
-- [ ] Use Case diagram(s) with correct use of `<<include>>` / `<<extend>>`
+- [x] CCT assessment cover page
+- [x] **5 Use Case narratives** (main path + alternative/exception paths) (20 marks)
+- [x] Use Case diagram(s) with correct use of `<<include>>` / `<<extend>>`
 - [ ] **UML Model 1** (e.g. Class Diagram) (15 marks)
 - [ ] **UML Model 2**, a DIFFERENT type (e.g. Activity or Sequence Diagram) (15 marks)
 - [ ] Add "future version" features to the diagrams (extra marks!)
-- [ ] **5 Functional requirements**: why each one is included + priority (e.g. MoSCoW) + justification (30 marks total)
-- [ ] **5 Non-functional requirements**: why each one is included + priority + justification
+- [x] **5 Functional requirements**: why each one is included + priority (e.g. MoSCoW) + justification (30 marks total) (I have 8!)
+- [x] **5 Non-functional requirements**: why each one is included + priority + justification (I have 7!)
+- [ ] Write the short MoSCoW intro sentence + delete the draft notes in the SDF doc
+- [ ] References (Harvard style)
 - [ ] **5 User Stories** with acceptance criteria (10 marks)
 - [ ] **2 Unit Test** documents in a clear template, covering edge/boundary cases (10 marks)
 - [ ] Export as **PDF**
