@@ -45,14 +45,14 @@
 ## 📂 Step 4: Read File + Recursive SORT (25 marks) 📍
 - [x] Ask the user for the filename and read `Applicants_Form.txt` (UC1: if the file isn't found, ask again)
 - [x] Skip invalid lines with a warning, then show how many staff were loaded (UC1)
-- [ ] If the list is empty, show "Please load the staff file first" (UC2)
+- [x] If the list is empty, show "Please load the staff file first" (UC2)
 - [x] Store the names in a list
-- [ ] Implement a **RECURSIVE** sorting algorithm by hand: **Quick Sort**, based on the teacher's `QuickSort.java` (no `Collections.sort`!)
-- [ ] Adapt it from numbers (`int`) to names (`String`, using `compareToIgnoreCase`)
-- [ ] Sort the names alphabetically
-- [ ] Display only the **first 20** sorted names
-- [ ] Test it with an empty list, 1 name, duplicate names and mixed upper/lower case
-- [ ] 🎤 Be able to explain: recursion, base case, pivot, Big-O (average O(n log n), worst O(n²)), why Quick Sort and not Selection Sort (O(n²), not recursive)
+- [x] Implement a **RECURSIVE** sorting algorithm by hand: **Quick Sort**, based on the teacher's `QuickSort.java` (no `Collections.sort`!)
+- [x] Adapt it from numbers (`int`) to names (`String`, using `compareToIgnoreCase`)
+- [x] Sort the names alphabetically
+- [x] Display only the **first 20** sorted names
+- [x] Test it with an empty list, 1 name, duplicate names and mixed upper/lower case
+- [ ] 🎤 (REVISIT with me, still confusing!) Be able to explain: recursion, base case, pivot, Big-O (average O(n log n), worst O(n²)), why Quick Sort and not Selection Sort (O(n²), not recursive)
 - [ ] Commit ✔️
 
 ## 🔍 Step 5: Recursive SEARCH (25 marks)

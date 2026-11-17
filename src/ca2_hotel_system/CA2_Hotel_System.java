@@ -1,5 +1,6 @@
 package ca2_hotel_system;
 
+import ca2_hotel_system.algorithms.QuickSort;
 import ca2_hotel_system.enums.MenuOption;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class CA2_Hotel_System {
                     loadStaffFile(keyboard);
                     break;
                 case SORT:
-                    System.out.println("\nSORT selected (coming soon!)");
+                    sortStaffList();
                     break;
                 case SEARCH:
                     System.out.println("\nSEARCH selected (coming soon!)");
@@ -151,6 +152,31 @@ public class CA2_Hotel_System {
         // show how many staff got in (UC1)
         System.out.println(staffNames.size() + " staff loaded successfully!");
     }
-            
-   
+
+    // here it is my method sortStaffList, it organises the shelf from A to Z (UC2)
+    // it uses my recursive QuickSort and then shows only the first 20 names
+    private static void sortStaffList() {
+        // the shelf is empty: the user needs to load the file first (UC2)
+        if (staffNames.isEmpty()) {
+            System.out.println("Please load the staff file first (option 1).");
+            return;
+        }
+
+        // QuickSort works with arrays, so i turn my list (shelf) into an array (tray)
+        String[] namesToSort = staffNames.toArray(new String[0]);
+        String[] sortedNames = QuickSort.quickSort(namesToSort);
+
+        // put the sorted names back on the shelf, so the list STAYS sorted (needed for the search in Step 5)
+        staffNames.clear();
+        for (String name : sortedNames) {
+            staffNames.add(name);
+        }
+
+        // show the first 20, or all of them if there are less than 20 (UC2)
+        int amountToShow = Math.min(20, staffNames.size());
+        System.out.println("\nStaff sorted A-Z (showing " + amountToShow + " of " + staffNames.size() + "):");
+        for (int i = 0; i < amountToShow; i++) {
+            System.out.println((i + 1) + ". " + staffNames.get(i));
+        }
+    }
 }
