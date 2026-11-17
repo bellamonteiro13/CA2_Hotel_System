@@ -2,6 +2,8 @@ package ca2_hotel_system;
 
 import ca2_hotel_system.enums.MenuOption;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 // CA2 Hotel Staff Management System
 // This is the starting point of the program. It shows the main menu,
@@ -9,6 +11,10 @@ import java.util.Scanner;
 // until the user chooses EXIT.
 public class CA2_Hotel_System {
 
+    private static ArrayList<String> staffNames = new ArrayList<>();
+    // here it is my shelf behind the bar: the list that keeps all the valid staff names
+    // static = there is only ONE shelf for the whole program, every method can use it
+    
     // Main method: the program starts running here
     public static void main(String[] args) {
         // Scanner reads what the user types on the keyboard
@@ -29,7 +35,7 @@ public class CA2_Hotel_System {
             // switch on the enum: one "case" for each menu option
             switch (selectedOption) {
                 case LOAD_STAFF_FILE:
-                    System.out.println("\nLOAD STAFF FILE selected (coming soon!)");
+                    loadStaffFile(keyboard);
                     break;
                 case SORT:
                     System.out.println("\nSORT selected (coming soon!)");
@@ -98,4 +104,53 @@ public class CA2_Hotel_System {
             }
         }
     }
+            // here it is my method loadStaffFile, it works like receiving the delivery at the bar
+            // it asks the file name, opens it, lets only valid names in and counts them (UC1)
+            // Receives: keyboard = the Scanner to read what the user types
+            
+    private static void loadStaffFile(Scanner keyboard) {
+        // the box where i keep the lines from the file (still not checked by the bouncer)
+        //void = gives nothing back 
+        // only puts the names on the shelf
+        // it reveices the keyboard so he can read what the user types 
+        
+    
+        ArrayList<String> fileLines;
+        // an empty box w a label on it 
+        // we declare outside the loop so it still exists after the loops ends 
+
+        // keep asking until the file is found (UC1: re-ask)
+        while (true) {
+            System.out.print("Please enter the file name: ");
+            String fileName = keyboard.nextLine().trim();
+
+            try { 
+                // try to open the delivery
+                fileLines = StaffFileReader.readLines(fileName);
+                break; // it worked! leave the loop
+            } catch (FileNotFoundException error) {
+                // the file doesnt exist: dont crash, just ask again
+                System.out.println("File not found! Please try again.");
+            }
+        }
+
+        // empty the shelf first, so loading the file twice doesnt repeat the names
+        staffNames.clear();
+
+        // the bouncer checks each line from the delivery, one by one
+        for (String line : fileLines) {
+            if (InputValidator.isValidName(line)) {
+                // valid name: it goes on the shelf (without extra spaces)
+                staffNames.add(line.trim());
+            } else {
+                // invalid line: skip it and warn the user (UC1)
+                System.out.println("Warning: skipping invalid line -> \"" + line + "\"");
+            }
+        }
+
+        // show how many staff got in (UC1)
+        System.out.println(staffNames.size() + " staff loaded successfully!");
+    }
+            
+   
 }

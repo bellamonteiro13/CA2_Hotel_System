@@ -26,7 +26,7 @@
 - [ ] 🎤 Be able to explain: what is an enum, and why is it better than plain ints or Strings?
 - [x] Commit ✔️ (94f889a)
 
-## 🏗️ Step 3: Classes & Inheritance (core requirement) 📍
+## 🏗️ Step 3: Classes & Inheritance (core requirement)
 > Names come from your SDF document, so the code and the diagrams match! 🎯
 - [x] Create the `ManagerType` enum (General Manager, Department Manager, Supervisor), written by me! ✍️
 - [x] Create the `DepartmentName` enum (Front Office, Housekeeping, Food & Beverage), written by me! ✍️
@@ -40,13 +40,13 @@
 - [x] Descriptive names + comments everywhere (in my own voice 💬)
 - [ ] `toString()` in `Manager` + `Employee` = **method overriding** (we'll add it in Step 4, when we print the list)
 - [ ] 🎤 Be able to explain: `extends`, `super()`, parent vs child class, method overriding
-- [ ] Commit ✔️
+- [x] Commit ✔️ (24ae855, 580797e, 91fc575)
 
-## 📂 Step 4: Read File + Recursive SORT (25 marks)
-- [ ] Ask the user for the filename and read `Applicants_Form.txt` (UC1: if the file isn't found, ask again)
-- [ ] Skip invalid lines with a warning, then show how many staff were loaded (UC1)
+## 📂 Step 4: Read File + Recursive SORT (25 marks) 📍
+- [x] Ask the user for the filename and read `Applicants_Form.txt` (UC1: if the file isn't found, ask again)
+- [x] Skip invalid lines with a warning, then show how many staff were loaded (UC1)
 - [ ] If the list is empty, show "Please load the staff file first" (UC2)
-- [ ] Store the names in a list
+- [x] Store the names in a list
 - [ ] Implement a **RECURSIVE** sorting algorithm by hand: **Quick Sort**, based on the teacher's `QuickSort.java` (no `Collections.sort`!)
 - [ ] Adapt it from numbers (`int`) to names (`String`, using `compareToIgnoreCase`)
 - [ ] Sort the names alphabetically
