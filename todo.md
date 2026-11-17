@@ -30,14 +30,15 @@
 > Names come from your SDF document, so the code and the diagrams match! 🎯
 - [x] Create the `ManagerType` enum (General Manager, Department Manager, Supervisor), written by me! ✍️
 - [x] Create the `DepartmentName` enum (Front Office, Housekeeping, Food & Beverage), written by me! ✍️
-- [ ] Parent class 1: `Employee` (name, designation, department)
-  - [ ] Subclasses: `Receptionist`, `RoomAttendant`, `Bartender`
+- [x] Parent class 1: `Employee` (name, designation, department)
+  - [x] Subclasses: `Receptionist`, `RoomAttendant`, `Bartender` (receive only the name, build their own department with `new`)
 - [x] Parent class 2: `Manager` (abstract, has-a Department), written by me! ✍️
   - [x] Subclasses: `GeneralManager`, `DepartmentManager`, `Supervisor` (receive 2, pass 3 with `super`)
 - [x] Parent class 3: `Department` (abstract), written by me! ✍️
   - [x] Subclasses: `FrontOffice`, `Housekeeping`, `FoodAndBeverage` (using `extends` + `super`)
-- [ ] Constructors, getters/setters and `toString()` in every class
-- [ ] Descriptive names + comments everywhere
+- [x] Constructors + getters in every class
+- [x] Descriptive names + comments everywhere (in my own voice 💬)
+- [ ] `toString()` in `Manager` + `Employee` = **method overriding** (we'll add it in Step 4, when we print the list)
 - [ ] 🎤 Be able to explain: `extends`, `super()`, parent vs child class, method overriding
 - [ ] Commit ✔️
 
