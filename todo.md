@@ -105,20 +105,20 @@
   - [ ] * `displayHierarchy`: why 4 loops (GM → DM → Sup → Employees) keep the bosses at the top
 - [x] Commit ✔️ (1c747fb)
 
-## 🧪 Step 9: Final Testing & Code Quality 📍
+## 🧪 Step 9: Final Testing & Code Quality
 - [x] Run every menu option from start to finish
 - [x] Try to break it (wrong inputs, empty file, unknown names) → found + fixed: a name like "---" was accepted (now needs at least 1 letter)
 - [x] Check that every class and method has comments
 - [x] Check that all variable names are descriptive
 - [x] Clean and build in NetBeans: it must **load and run**, or you may get zero! (Ant clean + jar = BUILD SUCCESSFUL; also click 🔨 Clean and Build once yourself)
-- [ ] Commit ✔️
+- [x] Commit ✔️ (bfad4ae)
 
-## 📝 Step 10: A&C Report (Word document)
-- [ ] CCT assessment cover page
-- [ ] Section (**max 500 words**) explaining **WHY** we chose this sorting algorithm (not how it works!)
-- [ ] Explain **WHY** we chose this searching algorithm (not how it works!)
-- [ ] Harvard referencing for any sources
-- [ ] GitHub repo link at the end of the report
+## 📝 Step 10: A&C Report (Word document) 📍
+- [x] CCT assessment cover page
+- [x] Section (**max 500 words**, mine = 446 ✅) explaining **WHY** we chose this sorting algorithm (not how it works!)
+- [x] Explain **WHY** we chose this searching algorithm (not how it works!)
+- [x] Harvard referencing for any sources
+- [x] GitHub repo link at the end of the report
 - [ ] Add the report `.docx` to the GitHub repo + commit ✔️
 
 ## 📐 Step 11: SDF Document (PDF, your own work ✍️)
