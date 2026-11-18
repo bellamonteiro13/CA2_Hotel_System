@@ -12,9 +12,9 @@ public class BinarySearch {
 
     // binarySearch = looks for the name between the positions low and high
     // Receives: sortedStaff = the staff sorted A to Z
-    //           targetName = the name the user typed
-    //           low = the first position of the part i am still looking at
-    //           high = the last position of the part i am still looking at
+    //targetName = the name the user typed
+    //low = the first position of the part i am still looking at
+    //high = the last position of the part i am still looking at
     // Gives back: the Manager with that name, or null if the name is not there
     public static Manager binarySearch(Manager[] sortedStaff, String targetName, int low, int high) {
 
@@ -27,7 +27,7 @@ public class BinarySearch {
         int middle = (low + high) / 2;
 
         // compare the name i want with the name in the middle (ignoring upper/lower case)
-        // 0 = same name, < 0 = my name comes BEFORE, > 0 = my name comes AFTER
+        // 0 = same name, < 0 = my name comes BEFORE(left), > 0 = my name comes AFTER(right)
         int comparison = targetName.compareToIgnoreCase(sortedStaff[middle].getName());
 
         if (comparison == 0) {

@@ -44,7 +44,7 @@ public class CA2_Hotel_System {
                     StaffManager.searchEmployee(keyboard);
                     break;
                 case ADD_EMPLOYEE:
-                    System.out.println("\nADD EMPLOYEE selected (coming soon!)");
+                    StaffManager.addEmployee(keyboard);
                     break;
                 case DISPLAY_HIERARCHY:
                     System.out.println("\nDISPLAY HIERARCHY selected (coming soon!)");

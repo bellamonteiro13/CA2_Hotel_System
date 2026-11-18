@@ -71,14 +71,17 @@
 - [x] Commit ✔️ (ba54e63)
 
 ## ➕ Step 7: Add New Records + Validation (20 marks) 📍
-- [ ] Ask for the **Name** (reject empty input, numbers and symbols)
-- [ ] Show the Manager Types and let the user choose (must be a valid option)
-- [ ] Show the Departments and let the user choose (must exist)
-- [ ] Handle wrong input (letters instead of numbers, out-of-range numbers) without crashing
-- [ ] Add the new record to the list (and keep the list sorted)
-- [ ] Print a success message, e.g. `"John Joe" has been added as "Assistant Manager" to "Front Desk" successfully!`
-- [ ] Display all newly added records
+- [x] Ask for the **Name** (reject empty input, numbers and symbols)
+- [x] Show the Manager Types and let the user choose (must be a valid option)
+- [x] Show the Departments and let the user choose (must exist)
+- [x] Handle wrong input (letters instead of numbers, out-of-range numbers) without crashing
+- [x] Add the new record to the list (and keep the list sorted)
+- [x] Print a success message, e.g. `"John Joe" has been added as "Assistant Manager" to "Front Desk" successfully!`
+- [x] Display all newly added records
 - [ ] 🎤 Be able to explain: how the validation works, `try/catch`, `InputMismatchException`
+- [ ] * ⭐ STUDY LATER (with me): Part D (enum label → real object with `new` + `switch`) and Part B/C (`readNumberInRange`, `values()[number - 1]`)
+- [x] * ⭐ Block a 2nd General Manager in option 4 ("The hotel already has a General Manager!"), like the dice does (fixed!)
+- [x] * ⭐ Loading the file again keeps the newly added staff (`staffList.addAll(newlyAddedStaff)` after `clear()`) (fixed!)
 - [ ] Commit ✔️
 
 ## 🌳 Step 8: Binary Tree Employee Hierarchy (20 marks)

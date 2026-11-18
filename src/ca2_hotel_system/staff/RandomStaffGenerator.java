@@ -56,7 +56,8 @@ public class RandomStaffGenerator {
     // checks the shelf: is there already a General Manager?
     // Receives: currentStaff = the shelf to check
     // Gives back: true if yes, false if no
-    private static boolean hasGeneralManager(ArrayList<Manager> currentStaff) {
+    // public = StaffManager also uses it, to stop a 2nd General Manager in option 4 (Add employee)
+    public static boolean hasGeneralManager(ArrayList<Manager> currentStaff) {
         for (Manager manager : currentStaff) {
             if (manager instanceof GeneralManager) {
                 return true;
