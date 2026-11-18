@@ -12,7 +12,7 @@ import java.util.Scanner;
 // my main works like the RECEPTIONIST of the hotel: it doesnt do the work itself,
 // it only sends each option to the right "department" (class)
 //   menu  -> MenuHandler   (shows the menu + reads the choice)
-//   staff -> StaffManager  (load, sort, search the staff)
+//   staff -> StaffManager  (load, sort, search, add, hierarchy of the staff)
 public class CA2_Hotel_System {
 
     // Main method: the program starts running here
@@ -47,7 +47,7 @@ public class CA2_Hotel_System {
                     StaffManager.addEmployee(keyboard);
                     break;
                 case DISPLAY_HIERARCHY:
-                    System.out.println("\nDISPLAY HIERARCHY selected (coming soon!)");
+                    StaffManager.displayHierarchy();
                     break;
                 case EXIT:
                     System.out.println("\nGoodbye! Thank you for using the Hotel Staff System.");

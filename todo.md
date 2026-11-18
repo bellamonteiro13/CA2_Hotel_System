@@ -70,7 +70,7 @@
 - [x] 🎤 Be able to explain: how `Random` works and why the data makes sense
 - [x] Commit ✔️ (ba54e63)
 
-## ➕ Step 7: Add New Records + Validation (20 marks) 📍
+## ➕ Step 7: Add New Records + Validation (20 marks)
 - [x] Ask for the **Name** (reject empty input, numbers and symbols)
 - [x] Show the Manager Types and let the user choose (must be a valid option)
 - [x] Show the Departments and let the user choose (must exist)
@@ -82,19 +82,20 @@
 - [ ] * ⭐ STUDY LATER (with me): Part D (enum label → real object with `new` + `switch`) and Part B/C (`readNumberInRange`, `values()[number - 1]`)
 - [x] * ⭐ Block a 2nd General Manager in option 4 ("The hotel already has a General Manager!"), like the dice does (fixed!)
 - [x] * ⭐ Loading the file again keeps the newly added staff (`staffList.addAll(newlyAddedStaff)` after `clear()`) (fixed!)
-- [ ] Commit ✔️
+- [x] Commit ✔️ (4724a25)
 
-## 🌳 Step 8: Binary Tree Employee Hierarchy (20 marks)
-- [ ] Create a `TreeNode` class (employee data + `left` + `right`)
-- [ ] Create a `BinaryTree` class
-- [ ] Insert at least **20 employees** (Name, Designation, Department)
-- [ ] Insert in **level order** so the hierarchy makes sense: General Manager → Department Managers → Supervisors → Employees (max 2 children per node)
-- [ ] Include employees added through the menu (UC5)
-- [ ] Build a hand-made Queue, like the one in the teacher's `BinaryTreeTeaching.java` (but big enough for 20+ nodes!)
-- [ ] Display the tree using **level-order traversal** (BFS with the Queue)
-- [ ] Calculate + display the **tree height** (recursive)
-- [ ] Calculate + display the **total number of nodes** (recursive)
+## 🌳 Step 8: Binary Tree Employee Hierarchy (20 marks) 📍
+- [x] Create a `TreeNode` class (employee data + `left` + `right`)
+- [x] Create a `BinaryTree` class
+- [x] Insert at least **20 employees** (Name, Designation, Department)
+- [x] Insert in **level order** so the hierarchy makes sense: General Manager → Department Managers → Supervisors → Employees (max 2 children per node)
+- [x] Include employees added through the menu (UC5)
+- [x] Build a hand-made Queue, like the one in the teacher's `BinaryTreeTeaching.java` (but big enough for 20+ nodes!)
+- [x] Display the tree using **level-order traversal** (BFS with the Queue)
+- [x] Calculate + display the **tree height** (recursive)
+- [x] Calculate + display the **total number of nodes** (recursive)
 - [ ] 🎤 Be able to explain: node, root, leaf, height, level-order traversal vs in/pre/post-order, why a Queue
+- [ ] * ⭐ STUDY LATER (with me): `StaffMember` (the new grandparent class), `instanceof`, the tree insert + BFS with the Queue, recursive height/count
 - [ ] Commit ✔️
 
 ## 🧪 Step 9: Final Testing & Code Quality
@@ -117,7 +118,7 @@
 - [x] CCT assessment cover page
 - [x] **5 Use Case narratives** (main path + alternative/exception paths) (20 marks)
 - [x] Use Case diagram(s) with correct use of `<<include>>` / `<<extend>>`
-- [ ] **UML Model 1** (e.g. Class Diagram) (15 marks)
+- [ ] **UML Model 1** (e.g. Class Diagram) (15 marks) ⚠️ include the new `StaffMember` grandparent (Manager + Employee extend it), `StaffManager`, `RandomStaffGenerator`, `MenuHandler`, `BinaryTree`/`TreeNode`/`StaffQueue`
 - [ ] **UML Model 2**, a DIFFERENT type (e.g. Activity or Sequence Diagram) (15 marks)
 - [ ] Add "future version" features to the diagrams (extra marks!)
 - [x] **5 Functional requirements**: why each one is included + priority (e.g. MoSCoW) + justification (30 marks total) (I have 8!)

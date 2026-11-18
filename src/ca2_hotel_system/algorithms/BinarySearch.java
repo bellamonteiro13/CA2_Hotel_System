@@ -1,6 +1,6 @@
 package ca2_hotel_system.algorithms;
 
-import ca2_hotel_system.managers.Manager;
+import ca2_hotel_system.staff.StaffMember;
 
 // here it is my class BinarySearch, it finds a person on the shelf by their NAME (UC3)
 // it works like looking for a word in a dictionary: open in the MIDDLE,
@@ -15,8 +15,8 @@ public class BinarySearch {
     //targetName = the name the user typed
     //low = the first position of the part i am still looking at
     //high = the last position of the part i am still looking at
-    // Gives back: the Manager with that name, or null if the name is not there
-    public static Manager binarySearch(Manager[] sortedStaff, String targetName, int low, int high) {
+    // Gives back: the StaffMember with that name, or null if the name is not there
+    public static StaffMember binarySearch(StaffMember[] sortedStaff, String targetName, int low, int high) {
 
         // base case 1: low passed high = there is nowhere left to look, so NOT FOUND
         if (low > high) {

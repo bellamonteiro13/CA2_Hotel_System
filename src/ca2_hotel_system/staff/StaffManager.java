@@ -1,6 +1,7 @@
 package ca2_hotel_system.staff;
 
 import ca2_hotel_system.algorithms.BinarySearch;
+import ca2_hotel_system.algorithms.BinaryTree;
 import ca2_hotel_system.algorithms.QuickSort;
 import ca2_hotel_system.managers.Manager;
 import ca2_hotel_system.utils.InputValidator;
@@ -17,6 +18,7 @@ import ca2_hotel_system.departments.Housekeeping;
 import ca2_hotel_system.managers.DepartmentManager;
 import ca2_hotel_system.managers.GeneralManager;
 import ca2_hotel_system.managers.Supervisor;
+import ca2_hotel_system.employees.Employee;
 
 
 // here it is my class StaffManager, it works like the BAR MANAGER who looks after the shelf
@@ -25,15 +27,15 @@ import ca2_hotel_system.managers.Supervisor;
 // my main only calls these methods, the real work happens here
 public class StaffManager {
 
-    // here it is my shelf behind the bar: the list that keeps all the staff (Manager objects)
-    // each manager has a name + a manager type + a department (Step 6: random data)
+    // here it is my shelf behind the bar: the list that keeps all the staff (managers AND employees)
+    // each person has a name + a designation + a department (Step 6: random data)
     // static = there is only ONE shelf for the whole program, every method can use it
-    private static ArrayList<Manager> staffList = new ArrayList<>();
+    private static ArrayList<StaffMember> staffList = new ArrayList<>();
 
     // here it is my second (small) shelf: ONLY the people added through option 4 (UC4)
     // so i can show "all newly added records", like the brief asks
     // it is NOT cleared when the file is loaded again, it keeps everybody added in this session
-    private static ArrayList<Manager> newlyAddedStaff = new ArrayList<>();
+    private static ArrayList<StaffMember> newlyAddedStaff = new ArrayList<>();
 
             // here it is my method loadStaffFile, it works like receiving the delivery at the bar
             // it asks the file name, opens it, lets only valid names in and counts them (UC1)
@@ -77,7 +79,7 @@ public class StaffManager {
         for (String line : fileLines) {
             if (InputValidator.isValidName(line)) {
                 // valid name: it gets a random manager type + department, then goes on the shelf
-                staffList.add(RandomStaffGenerator.createRandomManager(line.trim(), staffList));
+                staffList.add(RandomStaffGenerator.createRandomStaff(line.trim(), staffList));
             } else {
                 // invalid line: skip it and warn the user (UC1)
                 System.out.println("Warning: skipping invalid line -> \"" + line + "\"");
@@ -117,19 +119,19 @@ public class StaffManager {
     private static void sortStaff() {
         // QuickSort works with arrays, so i turn my list (shelf) into an array (tray)
         
-        Manager[] staffToSort = staffList.toArray(new Manager[0]);
+        StaffMember[] staffToSort = staffList.toArray(new StaffMember[0]);
         //create a tray of managers called staffToSort
         //staffList.toArray = copy everyone from the shelf onto the tray
         //new Manager[0] = java works out the size by itself,it is only a reference
         // it turns the shelf into a tray 
         // QuickSort works with arrays, so i turn my list (shelf) into an array (tray)
         
-        Manager[] sortedStaff = QuickSort.quickSort(staffToSort);
+        StaffMember[] sortedStaff = QuickSort.quickSort(staffToSort);
        
         // put the sorted staff back on the shelf, so the list STAYS sorted
         staffList.clear();
-        for (Manager manager : sortedStaff) {
-            staffList.add(manager);
+        for (StaffMember person : sortedStaff) {
+            staffList.add(person);
         }
     }
 
@@ -158,7 +160,7 @@ public class StaffManager {
         sortStaff();
 
         // start the recursive search on the WHOLE shelf: from position 0 to the last one
-        Manager[] sortedStaff = staffList.toArray(new Manager[0]);
+        StaffMember[] sortedStaff = staffList.toArray(new StaffMember[0]);
         //same thing from sort - it turns the shelf into a tray
         // create a tray of managers called sortedStaff
         //staffList.toArray = copy everyone from the shelf onto the tray
@@ -166,7 +168,7 @@ public class StaffManager {
 
         // BinarySearch works with arrays, so i turn my list (shelf) into an array (tray)
 
-        Manager foundPerson = BinarySearch.binarySearch(sortedStaff, nameToFind, 0, sortedStaff.length - 1);
+        StaffMember foundPerson = BinarySearch.binarySearch(sortedStaff, nameToFind, 0, sortedStaff.length - 1);
         //BinarySearch.binarySearch(...) = hey binary search look for someone for mee
         //sortedStaff = the tray to search 
         //nameToFind = who the person u are looking for 
@@ -180,7 +182,13 @@ public class StaffManager {
         } else {
             System.out.println("\nEmployee found!");
             System.out.println("Name: " + foundPerson.getName());
-            System.out.println("Manager Type: " + foundPerson.getManagerType().getLabel());
+            // how i read it: "IF the person is a manager, call it Manager Type, ELSE call it Designation"
+            // (getDesignation() gives the manager type for managers and the job title for employees)
+            if (foundPerson instanceof Manager) {
+                System.out.println("Manager Type: " + foundPerson.getDesignation());
+            } else {
+                System.out.println("Designation: " + foundPerson.getDesignation());
+            }
             System.out.println("Department: " + foundPerson.getDepartment().getName().getLabel());
         }
     }
@@ -315,6 +323,50 @@ public class StaffManager {
         for (int i = 0; i < newlyAddedStaff.size(); i++) {
             System.out.println((i + 1) + ". " + newlyAddedStaff.get(i));
         }
+    }
+
+    // here it is my method displayHierarchy, it builds the hotel tree and shows it (UC5)
+    // order: General Manager -> Department Managers -> Supervisors -> Employees
+    // it includes the people added through option 4, because they are on the shelf too
+    public static void displayHierarchy() {
+        // the shelf is empty: the user needs to load the file first
+        if (staffList.isEmpty()) {
+            System.out.println("Please load the staff file first (option 1).");
+            return;
+        }
+
+        // a NEW empty tree, big enough for everybody on the shelf
+        BinaryTree hierarchy = new BinaryTree(staffList.size());
+
+        // insert by RANK, so the most senior people go to the top levels
+        // how i read it: "go through the shelf 4 times: first the GM, then the Department Managers,
+        //                 then the Supervisors, then the Employees, and insert each one in level order"
+        for (StaffMember person : staffList) {
+            if (person instanceof GeneralManager) {
+                hierarchy.insert(person);
+            }
+        }
+        for (StaffMember person : staffList) {
+            if (person instanceof DepartmentManager) {
+                hierarchy.insert(person);
+            }
+        }
+        for (StaffMember person : staffList) {
+            if (person instanceof Supervisor) {
+                hierarchy.insert(person);
+            }
+        }
+        for (StaffMember person : staffList) {
+            if (person instanceof Employee) {
+                hierarchy.insert(person);
+            }
+        }
+
+        // show the tree level by level (BFS), then the height and the number of nodes
+        System.out.println("\n=== Hotel Staff Hierarchy (level order) ===");
+        hierarchy.displayLevelOrder();
+        System.out.println("\nTree height (number of levels): " + hierarchy.getHeight());
+        System.out.println("Total number of staff (nodes): " + hierarchy.countNodes());
     }
 
     // here it is my helper readNumberInRange, it reads a number between 1 and max

@@ -1,6 +1,6 @@
 package ca2_hotel_system.algorithms;
 
-import ca2_hotel_system.managers.Manager;
+import ca2_hotel_system.staff.StaffMember;
 
 // here it is my class QuickSort, it organises the staff names in alphabetical order
 // it is based on my teacher's QuickSort.java, but i changed it from numbers (int) to names (String)
@@ -8,11 +8,11 @@ import ca2_hotel_system.managers.Manager;
 // average O(n log n), worst case O(n²) (when the list is already sorted)
 public class QuickSort {
 
-    // quickSort = sorts the managers A to Z by their NAME (ignoring upper/lower case)
-    // Receives: arr = the managers to sort
-    // Gives back: a NEW array with the managers in alphabetical order
+    // quickSort = sorts the staff A to Z by their NAME (ignoring upper/lower case)
+    // Receives: arr = the staff to sort
+    // Gives back: a NEW array with the staff in alphabetical order
     //it sorts people now 
-    public static Manager[] quickSort(Manager[] arr) {
+    public static StaffMember[] quickSort(StaffMember[] arr) {
 
         // base case: 0 or 1 name is already sorted, so stop here (the STOP sign of the recursion)
         if (arr.length <= 1) {
@@ -20,7 +20,7 @@ public class QuickSort {
         }
 
         // the pivot = the LAST name, my "reference bottle"
-        Manager pivot = arr[arr.length - 1];
+        StaffMember pivot = arr[arr.length - 1];
 
         // counters (numbers, so they stay int)
         int leftCount = 0;
@@ -40,8 +40,8 @@ public class QuickSort {
         }
 
         // create the two piles (trays) with the right size
-        Manager[] left = new Manager[leftCount];
-        Manager[] right = new Manager[rightCount];
+        StaffMember[] left = new StaffMember[leftCount];
+        StaffMember[] right = new StaffMember[rightCount];
 
         // l and r = the next empty slot on each tray
         int l = 0, r = 0;
@@ -60,7 +60,7 @@ public class QuickSort {
         right = quickSort(right);
 
         // combine: left pile + pivot + right pile in one big tray
-        Manager[] result = new Manager[arr.length];
+        StaffMember[] result = new StaffMember[arr.length];
         int index = 0;
 
         for (int i = 0; i < left.length; i++) {
