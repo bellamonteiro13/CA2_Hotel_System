@@ -1,4 +1,4 @@
-package ca2_hotel_system;
+package ca2_hotel_system.utils;
 
 // here it is my class InputValidator, it works like the BOUNCER at the door of my system
 // its purpose: check every name BEFORE it gets in, so only real names go into my staff list

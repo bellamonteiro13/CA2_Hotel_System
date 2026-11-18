@@ -1,4 +1,4 @@
-package ca2_hotel_system;
+package ca2_hotel_system.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

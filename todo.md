@@ -55,14 +55,14 @@
 - [ ] 🎤 (REVISIT with me, still confusing!) Be able to explain: recursion, base case, pivot, Big-O (average O(n log n), worst O(n²)), why Quick Sort and not Selection Sort (O(n²), not recursive)
 - [x] Commit ✔️ (6b5a8be, 1bdfa62)
 
-## 🔍 Step 5: Recursive SEARCH (25 marks) 📍
+## 🔍 Step 5: Recursive SEARCH (25 marks)
 - [x] Implement a **RECURSIVE** search by hand (e.g. Binary Search) on the sorted list
 - [x] The user types a name and the program finds the person
 - [x] Return **Manager Type** + **Department**
 - [x] Handle "name not found" nicely
 - [x] Make the search case-insensitive
 - [ ] 🎤 Be able to explain: why the list must be sorted first, O(log n) vs linear search O(n)
-- [ ] Commit ✔️
+- [x] Commit ✔️ (05f4a30)
 
 ## 🎲 Step 6: Random Data Generation (core requirement)
 - [x] Randomly assign a Manager Type + Department to each name from the file
@@ -70,7 +70,7 @@
 - [x] 🎤 Be able to explain: how `Random` works and why the data makes sense
 - [x] Commit ✔️ (ba54e63)
 
-## ➕ Step 7: Add New Records + Validation (20 marks)
+## ➕ Step 7: Add New Records + Validation (20 marks) 📍
 - [ ] Ask for the **Name** (reject empty input, numbers and symbols)
 - [ ] Show the Manager Types and let the user choose (must be a valid option)
 - [ ] Show the Departments and let the user choose (must exist)
