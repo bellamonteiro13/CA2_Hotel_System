@@ -84,7 +84,7 @@
 - [x] * ⭐ Loading the file again keeps the newly added staff (`staffList.addAll(newlyAddedStaff)` after `clear()`) (fixed!)
 - [x] Commit ✔️ (4724a25)
 
-## 🌳 Step 8: Binary Tree Employee Hierarchy (20 marks) 📍
+## 🌳 Step 8: Binary Tree Employee Hierarchy (20 marks)
 - [x] Create a `TreeNode` class (employee data + `left` + `right`)
 - [x] Create a `BinaryTree` class
 - [x] Insert at least **20 employees** (Name, Designation, Department)
@@ -95,15 +95,22 @@
 - [x] Calculate + display the **tree height** (recursive)
 - [x] Calculate + display the **total number of nodes** (recursive)
 - [ ] 🎤 Be able to explain: node, root, leaf, height, level-order traversal vs in/pre/post-order, why a Queue
-- [ ] * ⭐ STUDY LATER (with me): `StaffMember` (the new grandparent class), `instanceof`, the tree insert + BFS with the Queue, recursive height/count
-- [ ] Commit ✔️
+- [ ] * ⭐ STUDY LATER (with me): `StaffMember` (the new grandparent class), `abstract getDesignation()`, `instanceof`
+- [ ] * ⭐ STUDY LATER (with me): the BINARY TREE section, slowly, with a small 7-person example drawn on paper ✏️
+  - [ ] * `TreeNode` (person + left + right) · root, parent, child, leaf, level
+  - [ ] * `StaffQueue`: enqueue / dequeue / isEmpty / size, and why a Queue (FIFO = first in, first out)
+  - [ ] * `insert`: how the queue finds the FIRST free spot (level order, left before right)
+  - [ ] * `displayLevelOrder` (BFS): printing one level at a time with `size()`
+  - [ ] * `getHeight` + `countNodes`: the recursion (base case `null` → 0) traced step by step
+  - [ ] * `displayHierarchy`: why 4 loops (GM → DM → Sup → Employees) keep the bosses at the top
+- [x] Commit ✔️ (1c747fb)
 
-## 🧪 Step 9: Final Testing & Code Quality
-- [ ] Run every menu option from start to finish
-- [ ] Try to break it (wrong inputs, empty file, unknown names)
-- [ ] Check that every class and method has comments
-- [ ] Check that all variable names are descriptive
-- [ ] Clean and build in NetBeans: it must **load and run**, or you may get zero!
+## 🧪 Step 9: Final Testing & Code Quality 📍
+- [x] Run every menu option from start to finish
+- [x] Try to break it (wrong inputs, empty file, unknown names) → found + fixed: a name like "---" was accepted (now needs at least 1 letter)
+- [x] Check that every class and method has comments
+- [x] Check that all variable names are descriptive
+- [x] Clean and build in NetBeans: it must **load and run**, or you may get zero! (Ant clean + jar = BUILD SUCCESSFUL; also click 🔨 Clean and Build once yourself)
 - [ ] Commit ✔️
 
 ## 📝 Step 10: A&C Report (Word document)

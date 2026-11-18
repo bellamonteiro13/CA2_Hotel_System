@@ -27,13 +27,23 @@ public class InputValidator {
             return false;
         }
 
+        // FIX (Step 9 testing): "---" or "'" only had allowed symbols, so they got in!
+        // now a name also needs AT LEAST ONE real letter
+        // how i read it: "start with no letters found yet"
+        boolean hasLetter = false;
+
         for (char letter : name.trim().toCharArray()) {
             if (!Character.isLetter(letter) && letter != ' ' && letter != '\'' && letter != '-') {
                 return false;
             }
+            // how i read it: "IF this character is a letter, remember that i found one"
+            if (Character.isLetter(letter)) {
+                hasLetter = true;
+            }
         }
 
-        return true;
+        // how i read it: "the name is valid only if i found at least one letter"
+        return hasLetter;
     }
 }
 
