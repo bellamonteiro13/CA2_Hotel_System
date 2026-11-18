@@ -1,5 +1,6 @@
 package ca2_hotel_system;
 
+import ca2_hotel_system.algorithms.BinarySearch;
 import ca2_hotel_system.algorithms.QuickSort;
 import ca2_hotel_system.departments.Department;
 import ca2_hotel_system.departments.FoodAndBeverage;
@@ -55,7 +56,7 @@ public class CA2_Hotel_System {
                     sortStaffList();
                     break;
                 case SEARCH:
-                    System.out.println("\nSEARCH selected (coming soon!)");
+                    searchEmployee(keyboard);
                     break;
                 case ADD_EMPLOYEE:
                     System.out.println("\nADD EMPLOYEE selected (coming soon!)");
@@ -175,21 +176,66 @@ public class CA2_Hotel_System {
             return;
         }
 
-        // QuickSort works with arrays, so i turn my list (shelf) into an array (tray)
-        Manager[] staffToSort = staffList.toArray(new Manager[0]);
-        Manager[] sortedStaff = QuickSort.quickSort(staffToSort);
-
-        // put the sorted names back on the shelf, so the list STAYS sorted (needed for the search in Step 5)
-        staffList.clear();
-        for (Manager manager : sortedStaff) {
-            staffList.add(manager);
-        }
+        // organise the shelf A to Z (the helper method below does the work)
+        sortStaff();
 
         // show the first 20, or all of them if there are less than 20 (UC2)
         int amountToShow = Math.min(20, staffList.size());
         System.out.println("\nStaff sorted A-Z (showing " + amountToShow + " of " + staffList.size() + "):");
         for (int i = 0; i < amountToShow; i++) {
             System.out.println((i + 1) + ". " + staffList.get(i));
+        }
+    }
+
+    // here it is my helper sortStaff, it puts the shelf in A to Z order WITHOUT printing
+    // both the Sort option (UC2) and the Search option (UC3) use it, so i dont repeat code
+    private static void sortStaff() {
+        // QuickSort works with arrays, so i turn my list (shelf) into an array (tray)
+        Manager[] staffToSort = staffList.toArray(new Manager[0]);
+        Manager[] sortedStaff = QuickSort.quickSort(staffToSort);
+
+        // put the sorted staff back on the shelf, so the list STAYS sorted
+        staffList.clear();
+        for (Manager manager : sortedStaff) {
+            staffList.add(manager);
+        }
+    }
+
+    // here it is my method searchEmployee, it finds a person by name (UC3)
+    // and shows their manager type + department
+    // Receives: keyboard = the Scanner to read what the user types
+    private static void searchEmployee(Scanner keyboard) {
+        // the shelf is empty: the user needs to load the file first (UC3)
+        if (staffList.isEmpty()) {
+            System.out.println("Please load the staff file first (option 1).");
+            return;
+        }
+
+        // ask for the name, and ask again if it is empty (UC3)
+        String nameToFind;
+        do {
+            System.out.print("Please enter the name to search: ");
+            nameToFind = keyboard.nextLine().trim();
+            if (nameToFind.isEmpty()) {
+                System.out.println("The name can't be empty! Please try again.");
+            }
+        } while (nameToFind.isEmpty());
+
+        // Binary Search ONLY works on a sorted list, so i sort first (just in case)
+        sortStaff();
+
+        // start the recursive search on the WHOLE shelf: from position 0 to the last one
+        Manager[] sortedStaff = staffList.toArray(new Manager[0]);
+        Manager foundPerson = BinarySearch.binarySearch(sortedStaff, nameToFind, 0, sortedStaff.length - 1);
+
+        // null = the search didnt find anybody
+        if (foundPerson == null) {
+            System.out.println("Employee not found: \"" + nameToFind + "\"");
+        } else {
+            System.out.println("\nEmployee found!");
+            System.out.println("Name: " + foundPerson.getName());
+            System.out.println("Manager Type: " + foundPerson.getManagerType().getLabel());
+            System.out.println("Department: " + foundPerson.getDepartment().getName().getLabel());
         }
     }
 
