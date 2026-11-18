@@ -38,11 +38,11 @@
   - [x] Subclasses: `FrontOffice`, `Housekeeping`, `FoodAndBeverage` (using `extends` + `super`)
 - [x] Constructors + getters in every class
 - [x] Descriptive names + comments everywhere (in my own voice 💬)
-- [ ] `toString()` in `Manager` + `Employee` = **method overriding** (we'll add it in Step 4, when we print the list)
+- [x] `toString()` in `Manager` = **method overriding** (added in Step 6 to print name | type | department; `Employee` gets one in Step 8)
 - [ ] 🎤 Be able to explain: `extends`, `super()`, parent vs child class, method overriding
 - [x] Commit ✔️ (24ae855, 580797e, 91fc575)
 
-## 📂 Step 4: Read File + Recursive SORT (25 marks) 📍
+## 📂 Step 4: Read File + Recursive SORT (25 marks)
 - [x] Ask the user for the filename and read `Applicants_Form.txt` (UC1: if the file isn't found, ask again)
 - [x] Skip invalid lines with a warning, then show how many staff were loaded (UC1)
 - [x] If the list is empty, show "Please load the staff file first" (UC2)
@@ -53,7 +53,7 @@
 - [x] Display only the **first 20** sorted names
 - [x] Test it with an empty list, 1 name, duplicate names and mixed upper/lower case
 - [ ] 🎤 (REVISIT with me, still confusing!) Be able to explain: recursion, base case, pivot, Big-O (average O(n log n), worst O(n²)), why Quick Sort and not Selection Sort (O(n²), not recursive)
-- [ ] Commit ✔️
+- [x] Commit ✔️ (6b5a8be, 1bdfa62)
 
 ## 🔍 Step 5: Recursive SEARCH (25 marks)
 - [ ] Implement a **RECURSIVE** search by hand (e.g. Binary Search) on the sorted list
@@ -64,10 +64,10 @@
 - [ ] 🎤 Be able to explain: why the list must be sorted first, O(log n) vs linear search O(n)
 - [ ] Commit ✔️
 
-## 🎲 Step 6: Random Data Generation (core requirement)
-- [ ] Randomly assign a Manager Type + Department to each name from the file
-- [ ] Make sure the random data is *appropriate* (valid types and departments only)
-- [ ] 🎤 Be able to explain: how `Random` works and why the data makes sense
+## 🎲 Step 6: Random Data Generation (core requirement) 📍
+- [x] Randomly assign a Manager Type + Department to each name from the file
+- [x] Make sure the random data is *appropriate* (valid types and departments only, and only ONE General Manager)
+- [x] 🎤 Be able to explain: how `Random` works and why the data makes sense
 - [ ] Commit ✔️
 
 ## ➕ Step 7: Add New Records + Validation (20 marks)

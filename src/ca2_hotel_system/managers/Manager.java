@@ -38,5 +38,15 @@ public abstract class Manager {
     public ManagerType getManagerType() {
         return managerType;
     }
+
+    // here it is my toString, it decides how a manager looks when i print it
+    // @Override = every class in Java already has a toString (from the class Object)
+    // but the original one prints something ugly like "Supervisor@1b6d3586"
+    // so i OVERRIDE it (i replace it with my own version) = METHOD OVERRIDING
+    // ex: Aoife Murphy | Supervisor | Front Office
+    @Override
+    public String toString() {
+        return name + " | " + managerType.getLabel() + " | " + department.getName().getLabel();
+    }
 }
 

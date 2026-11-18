@@ -1,10 +1,19 @@
 package ca2_hotel_system;
 
 import ca2_hotel_system.algorithms.QuickSort;
+import ca2_hotel_system.departments.Department;
+import ca2_hotel_system.departments.FoodAndBeverage;
+import ca2_hotel_system.departments.FrontOffice;
+import ca2_hotel_system.departments.Housekeeping;
+import ca2_hotel_system.managers.DepartmentManager;
+import ca2_hotel_system.managers.GeneralManager;
+import ca2_hotel_system.managers.Manager;
+import ca2_hotel_system.managers.Supervisor;
 import ca2_hotel_system.enums.MenuOption;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
+import java.util.Random;
 
 // CA2 Hotel Staff Management System
 // This is the starting point of the program. It shows the main menu,
@@ -12,9 +21,13 @@ import java.io.FileNotFoundException;
 // until the user chooses EXIT.
 public class CA2_Hotel_System {
 
-    private static ArrayList<String> staffNames = new ArrayList<>();
-    // here it is my shelf behind the bar: the list that keeps all the valid staff names
+    // here it is my shelf behind the bar: the list that keeps all the staff (Manager objects)
+    // each manager has a name + a manager type + a department (Step 6: random data)
     // static = there is only ONE shelf for the whole program, every method can use it
+    private static ArrayList<Manager> staffList = new ArrayList<>();
+
+    // the "dice" of my program: it picks random numbers (Step 6)
+    private static Random random = new Random();
     
     // Main method: the program starts running here
     public static void main(String[] args) {
@@ -136,13 +149,13 @@ public class CA2_Hotel_System {
         }
 
         // empty the shelf first, so loading the file twice doesnt repeat the names
-        staffNames.clear();
+        staffList.clear();
 
         // the bouncer checks each line from the delivery, one by one
         for (String line : fileLines) {
             if (InputValidator.isValidName(line)) {
-                // valid name: it goes on the shelf (without extra spaces)
-                staffNames.add(line.trim());
+                // valid name: it gets a random manager type + department, then goes on the shelf
+                staffList.add(createRandomManager(line.trim()));
             } else {
                 // invalid line: skip it and warn the user (UC1)
                 System.out.println("Warning: skipping invalid line -> \"" + line + "\"");
@@ -150,33 +163,77 @@ public class CA2_Hotel_System {
         }
 
         // show how many staff got in (UC1)
-        System.out.println(staffNames.size() + " staff loaded successfully!");
+        System.out.println(staffList.size() + " staff loaded successfully!");
     }
 
     // here it is my method sortStaffList, it organises the shelf from A to Z (UC2)
     // it uses my recursive QuickSort and then shows only the first 20 names
     private static void sortStaffList() {
         // the shelf is empty: the user needs to load the file first (UC2)
-        if (staffNames.isEmpty()) {
+        if (staffList.isEmpty()) {
             System.out.println("Please load the staff file first (option 1).");
             return;
         }
 
         // QuickSort works with arrays, so i turn my list (shelf) into an array (tray)
-        String[] namesToSort = staffNames.toArray(new String[0]);
-        String[] sortedNames = QuickSort.quickSort(namesToSort);
+        Manager[] staffToSort = staffList.toArray(new Manager[0]);
+        Manager[] sortedStaff = QuickSort.quickSort(staffToSort);
 
         // put the sorted names back on the shelf, so the list STAYS sorted (needed for the search in Step 5)
-        staffNames.clear();
-        for (String name : sortedNames) {
-            staffNames.add(name);
+        staffList.clear();
+        for (Manager manager : sortedStaff) {
+            staffList.add(manager);
         }
 
         // show the first 20, or all of them if there are less than 20 (UC2)
-        int amountToShow = Math.min(20, staffNames.size());
-        System.out.println("\nStaff sorted A-Z (showing " + amountToShow + " of " + staffNames.size() + "):");
+        int amountToShow = Math.min(20, staffList.size());
+        System.out.println("\nStaff sorted A-Z (showing " + amountToShow + " of " + staffList.size() + "):");
         for (int i = 0; i < amountToShow; i++) {
-            System.out.println((i + 1) + ". " + staffNames.get(i));
+            System.out.println((i + 1) + ". " + staffList.get(i));
         }
+    }
+
+    // here it is my method createRandomManager (Step 6: random data generation)
+    // the file only has NAMES, so the program rolls a "dice" to give each person
+    // a manager type and a department (this is the decision i made for UC1)
+    // the data is always APPROPRIATE: it only uses the 3 real departments and the 3 real
+    // manager types from my enums, and the hotel can only have ONE General Manager
+    // Receives: name = a valid name from the file
+    // Gives back: a GeneralManager, DepartmentManager or Supervisor with a random department
+    private static Manager createRandomManager(String name) {
+        // random.nextInt(3) = a random number 0, 1 or 2 (like a dice with 3 sides)
+        Department department;
+        switch (random.nextInt(3)) {
+            case 0:
+                department = new FrontOffice();
+                break;
+            case 1:
+                department = new Housekeeping();
+                break;
+            default:
+                department = new FoodAndBeverage();
+                break;
+        }
+
+        // only ONE General Manager in the hotel: if there is already one,
+        // the dice only picks between Department Manager and Supervisor
+        if (!hasGeneralManager() && random.nextInt(3) == 0) {
+            return new GeneralManager(name, department);
+        } else if (random.nextInt(2) == 0) {
+            return new DepartmentManager(name, department);
+        } else {
+            return new Supervisor(name, department);
+        }
+    }
+
+    // checks the shelf: is there already a General Manager?
+    // Gives back: true if yes, false if no
+    private static boolean hasGeneralManager() {
+        for (Manager manager : staffList) {
+            if (manager instanceof GeneralManager) {
+                return true;
+            }
+        }
+        return false;
     }
 }
